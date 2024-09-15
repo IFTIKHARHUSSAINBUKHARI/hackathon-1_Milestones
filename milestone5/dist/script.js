@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("resumeForm");
     const resumeOutput = document.getElementById("resumeOutput");
     const resumeContent = document.getElementById("resumeContent");
+    const shareButton = document.getElementById("shareButton");
+    const downloadButton = document.getElementById("downloadButton");
+    const shareLinkContainer = document.getElementById("shareLinkContainer");
+    const shareLink = document.getElementById("shareLink");
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         // Capture form data
@@ -33,6 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
         makeSectionEditable("resumeEducation", "education");
         makeSectionEditable("resumeExperience", "experience");
         makeSectionEditable("resumeSkills", "skills");
+        // Generate and display the shareable link
+        const uniqueUrl = `https://${name
+            .replace(/\s+/g, "")
+            .toLowerCase()}.vercel.app/resume`;
+        shareLink.href = uniqueUrl;
+        shareLink.textContent = uniqueUrl;
+        shareLinkContainer.classList.remove("hidden");
+        // Show share and download buttons
+        document.getElementById("resumeActions")?.classList.remove("hidden");
     });
     // Function to make sections editable and sync changes back to form inputs
     function makeSectionEditable(elementId, inputId) {
@@ -42,4 +55,36 @@ document.addEventListener("DOMContentLoaded", () => {
             formInputElement.value = editableElement.innerText; // Sync changes back to the form
         });
     }
+    // Share button logic to copy the shareable link to the clipboard
+    shareButton.addEventListener("click", () => {
+        const shareableLink = shareLink.href;
+        if (navigator.clipboard) {
+            navigator.clipboard
+                .writeText(shareableLink)
+                .then(() => {
+                alert("Shareable link copied to clipboard!");
+            })
+                .catch((err) => {
+                console.error("Failed to copy link: ", err);
+            });
+        }
+        else {
+            alert("Clipboard functionality is not available.");
+        }
+    });
+    // Download resume as PDF
+    downloadButton.addEventListener("click", () => {
+        const element = document.getElementById("resumeContent");
+        if (element) {
+            const opt = {
+                margin: 1,
+                filename: "resume.pdf",
+                image: { type: "jpeg", quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+            };
+            // @ts-ignore
+            html2pdf().from(element).set(opt).save();
+        }
+    });
 });

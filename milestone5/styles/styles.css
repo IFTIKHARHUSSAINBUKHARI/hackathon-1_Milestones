@@ -1,176 +1,253 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
 }
 
 header {
-    background-color: black;
-    color: white;
-    padding: 2rem;
-    text-align: center;
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  text-align: center;
 }
 
 main {
-    width: 80%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
-    display: grid;
-    gap: 1rem;
+  display: grid;
+  gap: 1rem;
 }
 
 fieldset {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
 legend {
-    font-weight: bold;
-    font-size: 1.1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 label {
-    display: block;
-    margin: 0.5rem 0;
+  display: block;
+  margin: 0.5rem 0;
 }
 
 input,
 textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-    background-color: black;
-    color: #fff;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+  background-color: black;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 button:hover {
-    background-color: #474444;
-    color: #fff;
+  background-color: #474444;
+  color: #fff;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 #resumeOutput {
-    margin-top: 2rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 #resumeContent {
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
-/* Mobile phones (portrait and landscape) */
-@media only screen and (max-width: 600px) {
-    main {
-        width: 90%;
-        padding: 0.5rem;
-    }
-
-    form {
-        gap: 0.5rem;
-    }
-
-    input,
-    textarea {
-        padding: 0.4rem;
-    }
-
-    button {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    footer {
-        font-size: 1rem;
-    }
+#resumeActions {
+  margin-top: 20px;
 }
 
-/* Tablets and small desktops */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    main {
-        width: 85%;
-    }
-
-    form {
-        gap: 0.75rem;
-    }
-
-    input,
-    textarea {
-        padding: 0.5rem;
-    }
-
-    button {
-        padding: 0.6rem;
-        font-size: 1rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    footer {
-        font-size: 1.05rem;
-    }
+#resumeActions button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* Larger desktops */
-@media only screen and (min-width: 1025px) {
-    main {
-        width: 70%;
-        padding: 1rem;
-    }
+#shareLinkContainer {
+  margin-top: 10px;
+}
 
-    form {
-        gap: 1rem;
-    }
+#shareLink {
+  color: #3d2aab;
+  text-decoration: none;
+}
 
-    input,
-    textarea {
-        padding: 0.75rem;
-    }
+#shareLink:hover {
+  text-decoration: underline;
+}
 
-    button {
-        padding: 0.8rem;
-        font-size: 1.1rem;
-    }
+/* General styling for mobile devices */
+@media (max-width: 600px) {
+  main {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
 
-    h2 {
-        font-size: 2rem;
-    }
+  form {
+    gap: 0.5rem;
+  }
 
-    footer {
-        font-size: 1.1rem;
-    }
+  fieldset {
+    padding: 0.5rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  #resumeActions {
+    margin-top: 15px;
+  }
+
+  #resumeActions button {
+    margin-right: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  #shareLinkContainer {
+    margin-top: 8px;
+  }
+
+  #shareLink {
+    font-size: 14px;
+  }
+}
+
+/* Styling for tablets and small laptops */
+@media (min-width: 601px) and (max-width: 1024px) {
+  main {
+    width: 85%;
+    padding: 1rem;
+  }
+
+  form {
+    gap: 0.8rem;
+  }
+
+  fieldset {
+    padding: 1rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  #resumeActions {
+    margin-top: 18px;
+  }
+
+  #resumeActions button {
+    margin-right: 8px;
+    padding: 9px 18px;
+    font-size: 15px;
+  }
+
+  #shareLinkContainer {
+    margin-top: 9px;
+  }
+
+  #shareLink {
+    font-size: 15px;
+  }
+
+}
+
+/* Styling for larger screens (desktops and large laptops) */
+@media (min-width: 1025px) {
+  main {
+    width: 75%;
+    max-width: 1000px;
+    padding: 1.5rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  button {
+    padding: 0.9rem;
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  #resumeActions {
+    margin-top: 20px;
+  }
+
+  #resumeActions button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  #shareLinkContainer {
+    margin-top: 10px;
+  }
+
+  #shareLink {
+    font-size: 16px;
+  }
 }
